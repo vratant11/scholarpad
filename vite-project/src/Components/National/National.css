@@ -1,0 +1,56 @@
+.national1 {
+  background: linear-gradient(180deg, #8d72e1 0%, rgba(164, 10, 60, 0.7) 100%);
+  height: 100% !important;
+}
+#heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  margin-top: 6%;
+  color: #f1d112;
+}
+.expcard {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+.cardinside {
+    border-radius: 5px;
+    height: 55vh;
+    box-shadow: 7px 5px 20px 11px rgb(128 128 128 / 50%) !important;
+    background: white !important;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.selectbtn {
+  color: black !important;
+  background: white;
+  width: 15rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dropdowns {
+  padding: 1rem;
+  margin-top: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+.applydiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.apply{
+    color: black;
+    background: linear-gradient(0deg, #F1D112, #F1D112);
+   
+}

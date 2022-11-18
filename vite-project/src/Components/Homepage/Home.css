@@ -41,7 +41,10 @@
     border-radius: 50px;
     /* height: 20vh; */
 }
-.text{
+.texts h2{
+    margin-bottom: 3%;
+}
+.texts{
     color: #F1D112;
     display: flex;
     flex-wrap: wrap;
@@ -51,15 +54,15 @@
     
 
 }
-.text p{
-    margin-top: -25%;
+.texts p{
+    margin-top: 5% !important;
     color: white;
     display: flex;
     font-size: 1.1rem;
 }
 .footer{
     background-color:#A40A3C;
-    height: 18vh;
+    height: 22vh;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -67,12 +70,14 @@
 }
 .footerimg{
     padding: 1rem;
+    margin-left: -5%;
     /* width: 2vw;       */
   
     
 }
 #image{
-    width: 6vw;
+    width: 8vw;
+    height: 8vw;
 }
 
 .footertext{
