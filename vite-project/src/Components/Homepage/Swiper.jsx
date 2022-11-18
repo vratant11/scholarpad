@@ -35,10 +35,11 @@ export default function App() {
     <>
       <Swiper id="swiper1"
         slidesPerView={3}
-        spaceBetween={30}
+        spaceBetween={50}
         pagination={{
           clickable: true,
         }}
+
         navigation={true}
         modules={[Autoplay , Navigation]}
         autoplay={{delay:2000}}
@@ -50,7 +51,7 @@ export default function App() {
     news? news.slice(40,50).map((e) => {
         return(
             <div>
-            <SwiperSlide className="swiperslide1">
+            <SwiperSlide className="swiperslide1" style={{borderRadius:"20px", boxShadow:""}}>
             <h1 style={{fontSize:"1rem", height:"80px", marginTop:"8px"}}>{e.title}</h1>
             <img src={e.urlToImage} alt="error" style={{width:"20rem", height:"20rem"}} />
         </SwiperSlide>

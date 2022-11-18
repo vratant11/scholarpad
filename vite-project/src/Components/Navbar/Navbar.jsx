@@ -175,6 +175,7 @@ export default function PrimarySearchAppBar() {
             {/* <MenuIcon /> */}
           </IconButton>
           <img
+          
             id="image"
             src="src\Images\Green Modern Education Online Course Logo (3) 1.png"
             alt="Error"

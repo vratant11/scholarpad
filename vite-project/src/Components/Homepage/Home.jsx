@@ -8,11 +8,11 @@ const Home = () => {
     <>
       <Navbar />
       <Carousel />
-      <div className="buttons">
+      <div className="buttons" style={{marginBottom:"10px", marginTop:"15px"}}>
         <button className="btn1">Make Your Profile</button>
         <button className="btn1">See Your Lists</button>
       </div>
-      <div style={{marginTop:"5px", padding:"15px", height:"25rem"}}>
+      <div style={{marginTop:"40px", padding:"15px", height:"35rem"}}>
         <h1 style={{color:"#F1D112", marginBottom:"20px", marginLeft:"20px"}}>News</h1>
       <Swiper/>
       </div>
