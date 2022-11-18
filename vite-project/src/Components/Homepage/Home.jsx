@@ -8,9 +8,11 @@ const Home = () => {
     <>
       <Navbar />
       <Carousel />
+      <div style={{marginTop:"5px", padding:"15px", height:"25rem"}}>
+        <h1 style={{color:"#F1D112", marginBottom:"20px", marginLeft:"20px"}}>News</h1>
       <Swiper/>
+      </div>
       <a href="#" style={{textDecoration:"none"}}>
-
       <div className="international">
         <div className="photo"><img src="src\Images\globe.jpg" alt="Error" /></div>
         <div className="text">
