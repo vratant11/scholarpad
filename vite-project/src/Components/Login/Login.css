@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#login-heading{
+    align-self: center;
+    align-self: center;
+    font-size: 3rem;
+    /* border: 2px solid; */
+    margin-right: -2rem !important;
+}
+.login{
+    display: flex;
+  /* justify-content: space-evenly; */
+  /* align-items: center; */
+  width: 100vw;
+  height: 100vh;
+  background: url("/src/Images/Log\ in.svg");
+  background-size: 100% 100%;
+  /* background-position: center center; */
+  background-repeat: none;
+}
+.left{
+    flex:3;
+}
+.right{
+    /* border: 2px solid black; */
+    flex: 3.5;
+    /* width: 10rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+}
+.logbtn{
+    /* position: absolute; */
+width: 80%;
+height: 25%;
+margin-top: 10% !important;
+margin-left: 13% !important;
+/* align-self: center; */
+/* align-content: center; */
+/* left: 874px; */
+/* top: 452px; */
+color: white !important;
+background-color: #338A7F !important;
+box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.25) !important;
+border-radius: 32px !important;
+}
+.log2btn{
+    width: 85%;
+height: 15%;
+/* margin-top: 10% !important; */
+margin-left: 17% !important;
+color: white !important;
+background: linear-gradient(90deg, #8D72E1 21.8%, rgba(164, 10, 60, 0.7) 77.4%);
+/* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+/* background-color: #338A7F !important; */
+box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.25) !important;
+border-radius: 32px !important;
+}
+
+.desc{
+    margin-top: 10%;
+    margin-left: 5%;
+    font-size: 17px;
+    color: #7D7D7D;
+}
+.desc2{
+    margin-top: 10%;
+    margin-left: 15%;
+    font-size: 17px;
+    color: #7D7D7D;
+}
