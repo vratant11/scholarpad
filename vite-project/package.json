@@ -15,14 +15,15 @@
     "@mui/lab": "^5.0.0-alpha.106",
     "@mui/material": "^5.10.12",
     "@mui/styled-engine-sc": "^5.10.6",
+    "react": "^18.2.0",
     "react-axios": "^2.0.6",
+    "react-dom": "^18.2.0",
     "react-google-recaptcha": "^2.1.0",
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.4.3",
     "react-toastify": "^9.1.1",
     "styled-components": "^5.3.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "swiper": "^8.4.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

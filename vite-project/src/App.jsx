@@ -5,6 +5,7 @@ import Error from "./Error/Error";
 import FormStructure from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
 import Otp from "./Components/Otp/Otp";
+import Home from "./Components/Homepage/Home";
 // import FormStructure from "./form/Registration";
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<FormStructure />} />
         <Route path="/otp" element={<Otp/>} />
         <Route path="/login" element={<Login/>} />        
+        <Route path="/home" element={<Home/>} />
       </Routes>
     </Router>
   );

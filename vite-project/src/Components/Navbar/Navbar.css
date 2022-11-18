@@ -1,0 +1,13 @@
+.main {
+    background: linear-gradient(180deg, #8d72e1 0%, rgba(164, 10, 60, 0.7) 100%);
+  }
+  #image{
+      width: 3.8rem;
+      margin-right: 22%;
+      margin-left: -2%;
+  }
+  .search{
+      width: 40rem !important;
+      background-color: aliceblue !important;
+      color: black;
+  }
