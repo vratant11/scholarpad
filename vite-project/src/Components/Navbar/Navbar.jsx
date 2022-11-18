@@ -163,7 +163,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" className="main">
+      <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}} className="main">
         <Toolbar>
           <IconButton
             size="large"
@@ -183,7 +183,7 @@ export default function PrimarySearchAppBar() {
 
           <Search className="search">
             <SearchIconWrapper>
-              <SearchIcon />
+              <SearchIcon  />
             </SearchIconWrapper>
             <StyledInputBase 
               placeholder="Search for scholarships.."
@@ -205,9 +205,11 @@ export default function PrimarySearchAppBar() {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              className="iconsize"
+              
             >
               {/* <Badge badgeContent={17} color="error"> */}
-                <AccessibleIcon />
+                <AccessibleIcon  />
               {/* </Badge> */}
             </IconButton>
             <IconButton
@@ -218,6 +220,7 @@ export default function PrimarySearchAppBar() {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
+              className="iconsize"
             >
             <MenuIcon />
             </IconButton>
@@ -239,6 +242,7 @@ export default function PrimarySearchAppBar() {
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
               color="inherit"
+              className="iconsize"
             >
               <MoreIcon />
             </IconButton>

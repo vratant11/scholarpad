@@ -1,5 +1,6 @@
 .main {
     background: linear-gradient(180deg, #8d72e1 0%, rgba(164, 10, 60, 0.7) 100%);
+    /* background-color: none !important; */
     padding: 5px;
   }
   #image{
@@ -12,4 +13,10 @@
       width: 40rem !important;
       background-color: aliceblue !important;
       color: black;
+  }
+  .iconsize{
+    width: 6vw !important;
+    /* height: 6vh; */
+    /* font-size:5rem !important; */
+
   }

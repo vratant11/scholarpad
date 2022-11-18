@@ -3,32 +3,41 @@ import Navbar from "../Navbar/Navbar";
 import Carousel from "../Homepage/Carousel";
 import Swiper from "../Homepage/Swiper";
 import "./Home.css";
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
+  const navigate = useNavigate();
+  const Profile = () => {
+   navigate('#');
+  };
+  const List = () => {
+    navigate('#');
+   };
   return (
-    <>
+    <div className="home">
       <Navbar />
       <Carousel />
       <div className="buttons" style={{marginBottom:"10px", marginTop:"15px"}}>
-        <button className="btn1">Make Your Profile</button>
-        <button className="btn1">See Your Lists</button>
+        <button className="btn1" onClick={Profile}>Make Your Profile</button>
+        <button className="btn1" onClick={List}>See Your Lists</button>
       </div>
       <div style={{marginTop:"40px", padding:"15px", height:"35rem"}}>
         <h1 style={{color:"#F1D112", marginBottom:"20px", marginLeft:"20px"}}>News</h1>
       <Swiper/>
       </div>
-      <a href="#" style={{ textDecoration: "none" }}>
+      <a href="/national" style={{ textDecoration: "none" }}>
         <div className="international">
           <div
             className="photo"
             data-aos="fade-right"
-            data-aos-offset="500"
+            data-aos-offset="300"
             data-aos-easing="ease-in-sine"
           >
             <img src="src\Images\globe.jpg" alt="Error" />
           </div>
-          <div className="text"
+          <div className="texts"
           data-aos="fade-left"
-          data-aos-offset="500"
+          data-aos-offset="300"
           data-aos-easing="ease-in-sine"
           >
             <h2>INTERNATIONAL SCHOLARSHIPS</h2>
@@ -42,11 +51,11 @@ const Home = () => {
           </div>
         </div>
       </a>
-      <a href="#" style={{ textDecoration: "none" }}>
+      <a href="/international" style={{ textDecoration: "none" }}>
         <div className="national">
-          <div className="text"
+          <div className="texts"
           data-aos="fade-right"
-          data-aos-offset="500"
+          data-aos-offset="300"
           data-aos-easing="ease-in-sine">
             <h2>NATIONAL SCHOLARSHIPS</h2>
             <p style={{ marginTop: "-35%" }}>
@@ -60,7 +69,7 @@ const Home = () => {
           <div
             className="photo"
             data-aos="fade-left"
-            data-aos-offset="500"
+            data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             
           >
@@ -100,7 +109,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
