@@ -15,7 +15,7 @@ export default function App() {
   return (
     <>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-        <SwiperSlide><img className="img" id="img1" src="src\Images\main.svg" alt="Error" /></SwiperSlide>
+        <SwiperSlide><img className="img" id="img1" src="src\Images\Untitled-1.jpg" alt="Error" /></SwiperSlide>
         <SwiperSlide><img className="img" src="src\Images\4.jpg" alt="Error" /></SwiperSlide>
         <SwiperSlide><img className="img" src="src\Images\1.jpeg" alt="Error" /></SwiperSlide>
       </Swiper>

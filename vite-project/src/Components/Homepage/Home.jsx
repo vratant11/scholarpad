@@ -8,6 +8,10 @@ const Home = () => {
     <>
       <Navbar />
       <Carousel />
+      <div className="buttons">
+        <button className="btn1">Make Your Profile</button>
+        <button className="btn1">See Your Lists</button>
+      </div>
       <Swiper/>
       <a href="#" style={{textDecoration:"none"}}>
 
@@ -41,11 +45,34 @@ const Home = () => {
       </div>
       </a>
       <div className="footer">
-      <img className="footerimg"
+        <div className="footerimg">
+      <img 
             id="image"
             src="src\Images\Green Modern Education Online Course Logo (3) 1.png"
             alt="Error"
           />
+        </div>
+        <div className="footertext">
+          <div className="leftbox">
+            <ul >
+              <li>About Us</li>
+              <li>Terms And Conditions</li>
+            </ul>
+          </div>
+          <div className="middlebox">
+          <ul>
+              <li>Privacy Policy</li>
+              <li>Hyperlink Policy</li>
+            </ul>
+          </div>
+          <div className="rightbox">
+          <ul >
+              <li>Disclaimer</li>
+              <li>Sitemap</li>
+            </ul>
+          </div>
+
+        </div>
       </div>
     </>
   );

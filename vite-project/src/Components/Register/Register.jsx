@@ -157,8 +157,7 @@ const FormStructure = () => {
 
     if(handleFocusPhoneNumber()){
       console.log("name")
-    }
-    
+    }  
 
 
     if (

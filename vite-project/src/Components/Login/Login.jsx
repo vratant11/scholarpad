@@ -2,6 +2,8 @@ import React from "react";
 import "./Login.css";
 import Tab from "@mui/material/Tab";
 import TabPanel from "@mui/lab/TabPanel";
+import {useNavigate} from "react-router-dom";
+
 import { Box } from "@mui/system";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
@@ -71,26 +73,7 @@ const Login = () => {
 
   
 
-//   const validatePassword = (value) => {
-//     let error;
-//     const regex = /^[A-Za-z]{3,}[@][0-9]{7,8}$/;
-//     if (!value) {
-//       error = "Password is required";
-//       setPasswordErrorType(true);
-//     //   setRoutepass(false);
-//     //   setCredential(false);
-//     } else if (!regex.test(value)) {
-//       error = "Password is incorrect";
-//       setPasswordErrorType(true);
-//     //   setRoutepass(false);
-//     //   setCredential(false);
-//     } else {
-//       setPasswordErrorType(false);
-//     //   setRoutepass(true);
-//     //   setCredential(true);
-//     }
-//     return error;
-//   };
+
 
 
   const seen = () => {
@@ -117,6 +100,8 @@ const Login = () => {
         .then((res) => {
           console.log(res);
           window.alert("Logged in successfully");
+    navigate("/")
+          
         })
         .catch((err) => {
           console.log(err);
@@ -212,11 +197,10 @@ const Login = () => {
             <Button className="log2btn" onClick={submit}>Log In</Button>
             <p className="desc2">
               Don't have an account ?{" "}
-              <a href="/" style={{ color: "blue", textDecoration:"none" }}>
+              <a href="/register" style={{ color: "blue", textDecoration:"none" }}>
                 Register
               </a>
-            </p>
-          
+            </p>        
 
           </TabPanel>
         </TabContext>

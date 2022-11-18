@@ -12,10 +12,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="*" element={<Error />} />
-        <Route path="/" element={<FormStructure />} />
+        <Route path="/" element={<Home/>} />
+        <Route path="/register" element={<FormStructure />} />
         <Route path="/otp" element={<Otp/>} />
         <Route path="/login" element={<Login/>} />        
-        <Route path="/home" element={<Home/>} />
       </Routes>
     </Router>
   );
