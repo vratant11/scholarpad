@@ -23,6 +23,7 @@ export default function App() {
         modules={[Pagination]}
         className="mySwiper"
       >
+        
         <SwiperSlide className="swiperslide1">Slide 1</SwiperSlide>
         <SwiperSlide className="swiperslide1">Slide 1</SwiperSlide>
         <SwiperSlide className="swiperslide1">Slide 1</SwiperSlide>
