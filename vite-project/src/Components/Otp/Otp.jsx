@@ -8,7 +8,7 @@ const Otp = (accessToken) => {
 
     const location = useLocation();
     console.log(location.state.accessToken);
-
+    localStorage.setItem("token", location.state.accessToken);
     // const getRegisterInfo = async() => {
     
     //     try{        
@@ -44,6 +44,7 @@ const Otp = (accessToken) => {
             .patch("https://scholarpad.herokuapp.com/api/v1/signup/verify", data)
             .then((res) => {
                 console.log(res);
+                navigate("/")
 
             })
             .catch((err) => {

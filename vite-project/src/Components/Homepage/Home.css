@@ -2,9 +2,10 @@
     margin: 0px;
     padding: 0px;
 }
-body{
+.home{
     background: linear-gradient(180deg, #8D72E1 0%, rgba(164, 10, 60, 0.7) 100%);
 }
+
 .international{
     padding: 2rem;
     display: flex;

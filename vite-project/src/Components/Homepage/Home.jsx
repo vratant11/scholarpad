@@ -3,13 +3,15 @@ import Navbar from "../Navbar/Navbar";
 import Carousel from "../Homepage/Carousel";
 import Swiper from "../Homepage/Swiper";
 import "./Home.css";
+import Profile from "../Profile/Profile";
+import { Link } from "react-router-dom";
 const Home = () => {
   return (
-    <>
+    <div className="home">
       <Navbar />
       <Carousel />
       <div className="buttons" style={{marginBottom:"10px", marginTop:"15px"}}>
-        <button className="btn1">Make Your Profile</button>
+       <Link to="/profile"> <button className="btn1" >Make Your Profile</button> </Link> 
         <button className="btn1">See Your Lists</button>
       </div>
       <div style={{marginTop:"40px", padding:"15px", height:"35rem"}}>
@@ -100,7 +102,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
