@@ -9,6 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.9",
+    "@mui/lab": "^5.0.0-alpha.106",
+    "@mui/material": "^5.10.12",
+    "@mui/styled-engine-sc": "^5.10.6",
+    "react-axios": "^2.0.6",
+    "react-google-recaptcha": "^2.1.0",
+    "react-loader-spinner": "^5.3.4",
+    "react-router-dom": "^6.4.3",
+    "react-toastify": "^9.1.1",
+    "styled-components": "^5.3.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
