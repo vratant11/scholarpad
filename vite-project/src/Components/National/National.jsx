@@ -12,12 +12,23 @@ import { Button } from "@mui/material";
 export default function National() {
   const [data, setData] = React.useState([]);
   const url = "https://scholarpad.herokuapp.com/api/v1/national";
+  const Star = () => {
+    let token = localStorage.getItem("token");
+    const data = {
+      "emailaccessToken": token,      
+    }
+    axios.patch(`https://scholarpad.herokuapp.com/api/v1/list/national/${data.id}`)
+    .then((res) => {
+     console.log("Data saved");
+    })
+  };
   const getScholarship = () => {
     axios
       .get(url)
       .then((res) => {
-        console.log(res.data);
         setData(res.data);
+        console.log(data.id);
+      
       })
       .catch((err) => {
         console.log(err);
@@ -25,6 +36,7 @@ export default function National() {
   };
   useEffect(() => {
     getScholarship();
+
   }, []);
 
   return (
@@ -45,19 +57,15 @@ export default function National() {
           <ul className="dropdown-menu">
             <li>
               <a className="dropdown-item" href="#">
-                Action
+                Latest
               </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
-                Another action
+                Older
               </a>
             </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
+           
           </ul>
         </div>
         <div className="dropdown ">
@@ -72,17 +80,22 @@ export default function National() {
           <ul className="dropdown-menu">
             <li>
               <a className="dropdown-item" href="#">
-                Action
+                Less than 3 lakh
               </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
-                Another action
+              Less than 6 lakh
               </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
-                Something else here
+              Less than 10 lakh
+              </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+              Not applicable
               </a>
             </li>
           </ul>
@@ -140,7 +153,7 @@ export default function National() {
                   <Button variant="contained" className="apply">
                     Apply
                   </Button>
-                  <StarBorderIcon />
+                  <StarBorderIcon onClick={Star}/>
                 </div>
               </CardContent>
             </Card>
