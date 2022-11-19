@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -35,6 +36,7 @@ const Search = styled("div")(({ theme }) => ({
   },
 }));
 
+
 const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: "100%",
@@ -60,11 +62,20 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+
+
+  const handleColors = () => {
+  
+    setIsActive(current => !current);
+  
+  };
+  
+
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
+  const [isActive, setIsActive] = useState(false);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -191,7 +202,10 @@ export default function PrimarySearchAppBar() {
 
           <Search id="searchmui">
             <SearchIconWrapper>
-              <SearchIcon  />
+              <SearchIcon style={{
+          backgroundColor: isActive ? 'salmon' : '',
+          color: isActive ? 'white' : '',
+        }}  />
             </SearchIconWrapper>
             <StyledInputBase 
               placeholder="Search for scholarships.."
@@ -217,7 +231,10 @@ export default function PrimarySearchAppBar() {
               
             >
               {/* <Badge badgeContent={17} color="error"> */}
-                <AccessibleIcon  />
+                <AccessibleIcon style={{
+          backgroundColor: isActive ? 'salmon' : '',
+          color: isActive ? 'white' : '',
+        }} onClick={handleColors} />
               {/* </Badge> */}
             </IconButton>
             {token ? (
@@ -231,8 +248,12 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
               className="iconsize"
+              
             >
-            <MenuIcon />
+            <MenuIcon style={{
+          backgroundColor: isActive ? 'salmon' : '',
+          color: isActive ? 'white' : '',
+        }} />
             </IconButton>
             ):""}
           </Box>
@@ -244,7 +265,10 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Badge >
-            <AccountCircle onClick={Click}/>                
+            <AccountCircle style={{
+          backgroundColor: isActive ? 'salmon' : '',
+          color: isActive ? 'white' : '',
+        }} onClick={Click}/>                
               </Badge>
             </IconButton>
           ):""}
@@ -258,7 +282,10 @@ export default function PrimarySearchAppBar() {
               color="inherit"
               className="iconsize"
             >
-              <MoreIcon />
+              <MoreIcon style={{
+          backgroundColor: isActive ? 'salmon' : '',
+          color: isActive ? 'white' : '',
+        }} />
             </IconButton>
           </Box>
         </Toolbar>
