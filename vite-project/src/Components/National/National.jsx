@@ -13,72 +13,104 @@ import { useState } from "react";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
-
+import statedata from "../statedata";
 
 export default function National() {
   const [scholardata, setScholarData] = React.useState([]);
   const [income, setIncome] = useState("");
-  const [graduate, setGraduate] = useState("")
+  const [graduate, setGraduate] = useState("");
+  const [category, setCategory] = useState("");
+  const [stateArray, setStateArray] = useState([]);
+  const [state, setState] = useState("");
   const navigate = useNavigate();
 
-  const onSelected = () =>{
-    if(income || graduate){
-      if(income){
+  const onSelected = () => {
+    if (income || graduate || category) {
+      if (income) {
         let url = `https://scholarpad.herokuapp.com/api/v1/filter/national?income=${income}`;
-        axios.get(url)
-        .then((res) =>{
-          console.log(res)
-          setScholarData(res.data)
+        axios
+          .get(url)
+          .then((res) => {
+            console.log(res);
+            setScholarData(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+      else if(graduate) {
+        let url = `https://scholarpad.herokuapp.com/api/v1/filter/national?graduate=${graduate}`;
+        axios
+          .get(url)
+          .then((res) => {
+            console.log(res);
+            setScholarData(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+      else if(category){
+        let url = `https://scholarpad.herokuapp.com/api/v1/filter/national?category=${category}`;
+        axios
+          .get(url)
+          .then((res) => {
+            console.log(res);
+            setScholarData(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    }
+     else if (income && graduate && category) {
+      let url = `https://scholarpad.herokuapp.com/api/v1/filter/national?income=${income}&graduate=${graduate}&category=${category}`;
+      axios
+        .get(url)
+        .then((res) => {
+          console.log(res);
+          setScholarData(res.data);
         })
         .catch((err) => {
           console.log(err);
-        })
-      }
-      else{
-        let url = `https://scholarpad.herokuapp.com/api/v1/filter/national?graduate=${graduate}`
-        axios.get(url)
-        .then((res) => {
-          console.log(res);
-          setScholarData(res.data);
-        })
-        .catch((err)=>{
-          console.log(err);
-        })
-      }
-      }
-      else if(income && graduate){
-        let url = `https://scholarpad.herokuapp.com/api/v1/filter/national?income=${income}&graduate=${graduate}`
-        axios.get(url)
-        .then((res) => {
-          console.log(res);
-          setScholarData(res.data);
-        })
-        .catch((err)=>{
-          console.log(err);
-        })
-      }
-      else{
-        getScholarship();
-      }
+        });
+    } else {
+      getScholarship();
     }
-  
-  
-  function Star(item)  {
+  };
+
+  function Star(item) {
     console.log(item);
     let token = localStorage.getItem("token");
     const data = {
-      "accessToken": token,      
-    }
+      accessToken: token,
+    };
     console.log(data);
-    axios.patch(`https://scholarpad.herokuapp.com/api/v1/list/national/${item}`,data)
-    .then((res) => {
-     console.log("Data saved");
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
+    axios
+      .patch(
+        `https://scholarpad.herokuapp.com/api/v1/list/national/${item}`,
+        data
+      )
+      .then((res) => {
+        console.log("Data saved");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  const getState = () => {
+    axios
+      .get("https://scholarpad.herokuapp.com/api/v1/state")
+      .then((res) => {
+        console.log(res.data);
+        setStateArray(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
- 
+
   const getScholarship = () => {
     let url = "https://scholarpad.herokuapp.com/api/v1/national";
     axios
@@ -86,16 +118,16 @@ export default function National() {
       .then((res) => {
         setScholarData(res.data);
         // console.log(data.id);
-      
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
+
   useEffect(() => {
     onSelected();
-
-  }, [income, graduate]);
+  }, [income, graduate, category]);
 
   return (
     <div className="national1">
@@ -108,7 +140,7 @@ export default function National() {
             {/* <InputLabel id="demo-simple-select-label">Gender</InputLabel> */}
             <Select
               className="textField"
-              style={{  width: "300px" , marginRight :"30%"}}
+              style={{ width: "300px", marginRight: "30%" }}
               sx={{ width: { sm: 200, md: 210 } }}
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -128,7 +160,9 @@ export default function National() {
               </MenuItem> */}
               <MenuItem value={"Less than 3 lakh "}>Less than 3 Lakhs</MenuItem>
               <MenuItem value={"Less than 6 lakh"}>Less than 6 Lakhs</MenuItem>
-              <MenuItem value={"Less than 10 lakh"}>Less than 10 Lakhs</MenuItem>
+              <MenuItem value={"Less than 10 lakh"}>
+                Less than 10 Lakhs
+              </MenuItem>
             </Select>
           </FormControl>
         </div>
@@ -137,7 +171,7 @@ export default function National() {
             {/* <InputLabel id="demo-simple-select-label">Gender</InputLabel> */}
             <Select
               className="textField"
-              style={{  width: "300px" }}
+              style={{ width: "300px" }}
               // sx={{ width: { sm: 200, md: 210 } }}
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -161,13 +195,41 @@ export default function National() {
             </Select>
           </FormControl>
         </div>
-        
+        <div className="inputCandidate">
+          <FormControl fullWidth size="small">
+            {/* <InputLabel id="demo-simple-select-label">Gender</InputLabel> */}
+            <Select
+              className="textField"
+              style={{ width: "300px" }}
+              // sx={{ width: { sm: 200, md: 210 } }}
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={category || ""}
+              autoComplete="off"
+              required
+              placeholder="Category"
+              variant="outlined"
+              size="small"
+              label="Category"
+              onChange={(e) => setCategory(e.target.value)}
+              // onBlur={handleFocusGender}
+              // focused={focused.toString()}
+            >
+              {/* <MenuItem selected value={"Education"}>
+                Education
+              </MenuItem> */}
+              <MenuItem value={"AICTE"}>AICTE</MenuItem>
+              <MenuItem value={"UGC"}>UGC</MenuItem>
+              {/* <MenuItem value={"Other"}>Other</MenuItem> */}
+            </Select>
+          </FormControl>
+        </div>
       </div>
       <div className="expcard">
         {scholardata.map((item) => {
           return (
             <Card
-            key={item._id}
+              key={item._id}
               sx={{ maxWidth: 345 }}
               className="cardinside"
               data-aos="flip-left"
@@ -186,17 +248,15 @@ export default function National() {
                 </Typography>
                 <Typography paragraph>{item.lastDate}</Typography>
                 <div className="applydiv">
-                  <a href={item.applyUrl} style={{textDecoration:"none"}}>
-                  <Button variant="contained" className="apply" >
-                    Apply
-                  </Button>
+                  <a href={item.applyUrl} style={{ textDecoration: "none" }}>
+                    <Button variant="contained" className="apply">
+                      Apply
+                    </Button>
                   </a>
-                 
-                  <button onClick={() => Star(item._id)}>
 
-                  <StarBorderIcon  />
+                  <button onClick={() => Star(item._id)}>
+                    <StarBorderIcon />
                   </button>
-                 
                 </div>
               </CardContent>
             </Card>
@@ -206,4 +266,3 @@ export default function National() {
     </div>
   );
 }
-
