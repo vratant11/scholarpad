@@ -8,26 +8,82 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Navbar from "../Navbar/Navbar";
 import { Button } from "@mui/material";
+import Select from "@mui/material/Select";
+import FormControl from "@mui/material/FormControl";
+import MenuItem from "@mui/material/MenuItem";
+
+import { useState } from "react";
 
 export default function National() {
   const [scholardata, setScholarData] = React.useState([]);
-  function Star(item)  {
+  const [country, setCountry] = useState();
+  const [income, setIncome] = useState("");
+  const [degree, setDegree] = useState("");
+
+
+  const onSelected = () => {
+    if(country || degree){
+      if(country){
+        let url = `https://scholarpad.herokuapp.com/api/v1/filter/international?country=${country}`
+        axios.get(url)
+        .then((res) =>{
+          console.log(res)
+          setScholarData(res.data)
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+      }
+      else{
+        let url= `https://scholarpad.herokuapp.com/api/v1/filter/international?graduate=${degree}`
+        axios.get(url)
+        .then((res) => {
+          console.log(res);
+          setScholarData(res.data);
+        })
+        .catch((err)=>{
+          console.log(err);
+        })
+      }
+    }
+    else if(country && degree){
+      let url = `https://scholarpad.herokuapp.com/api/v1/filter/international?country=${country}&graduate=${degree}`
+      axios.get(url)
+        .then((res) => {
+          console.log(res);
+          setScholarData(res.data);
+        })
+        .catch((err)=>{
+          console.log(err);
+        })
+    }
+    else{
+      getScholarship();
+    }
+  }
+
+
+  function Star(item) {
     console.log(item);
     let token = localStorage.getItem("token");
     const data = {
-      "accessToken": token,      
-    }
+      "accessToken": token,
+    };
     console.log(data);
-    axios.patch(`https://scholarpad.herokuapp.com/api/v1/list/international/${item}`,data)
-    .then((res) => {
-     console.log("Data saved");
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
+    axios
+      .patch(
+        `https://scholarpad.herokuapp.com/api/v1/list/international/${item}`,
+        data
+      )
+      .then((res) => {
+        console.log("Data saved");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
-  const url = "https://scholarpad.herokuapp.com/api/v1/international";
   const getScholarship = () => {
+    let url = "https://scholarpad.herokuapp.com/api/v1/international";
     axios
       .get(url)
       .then((res) => {
@@ -39,8 +95,8 @@ export default function National() {
       });
   };
   useEffect(() => {
-    getScholarship();
-  }, []);
+    onSelected();
+  }, [country, degree]);
 
   return (
     <div className="national1">
@@ -48,99 +104,71 @@ export default function National() {
       <h2 id="heading">International Scholarships</h2>
       <div className="dropdowns">
         <h4>Sort BY:</h4>
-        <div className="dropdown ">
-          <button
-            className="btn btn-secondary dropdown-toggle selectbtn "
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Recent
-          </button>
-          <ul className="dropdown-menu">
-            <li>
-              <a className="dropdown-item" href="#">
-                Latest
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Older
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="dropdown ">
-          <button
-            className="btn btn-secondary dropdown-toggle selectbtn "
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Income
-          </button>
-          <ul className="dropdown-menu">
-            <li>
-              <a className="dropdown-item" href="#">
-                Less than 3 Lakh
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-              Less than 6 Lakh
 
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-              Less than 10 Lakh
-
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-          </ul>
+        <div className="inputCandidate">
+          <FormControl fullWidth size="small">
+            {/* <InputLabel id="demo-simple-select-label">Gender</InputLabel> */}
+            <Select
+              className="textField"
+              style={{  width: "300px" , marginRight :"30%"}}
+              sx={{ width: { sm: 200, md: 210 } }}
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={country || ""}
+              autoComplete="off"
+              required
+              placeholder="Country"
+              variant="outlined"
+              size="small"
+              label="Gender"
+              onChange={(e) => setCountry(e.target.value)}
+              // onBlur={handleFocusGender}
+              // focused={focused.toString()}
+            >
+              {/* <MenuItem selected defaultChecked value={"Country"}>
+                Country
+              </MenuItem> */}
+              <MenuItem value={"Australia"}>Australia</MenuItem>
+              <MenuItem value={"UK"}>UK</MenuItem>
+              <MenuItem value={"Europe"}>Europe</MenuItem>
+            </Select>
+          </FormControl>
         </div>
-        <div className="dropdown ">
-          <button
-            className="btn btn-secondary dropdown-toggle selectbtn "
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Education
-          </button>
-          <ul className="dropdown-menu">
-            <li>
-              <a className="dropdown-item" href="#">
-                Graduate
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                PostGraduate
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-          </ul>
+        <div className="inputCandidate">
+          <FormControl fullWidth size="small">
+            {/* <InputLabel id="demo-simple-select-label">Gender</InputLabel> */}
+            <Select
+              className="textField"
+              style={{  width: "300px" }}
+              // sx={{ width: { sm: 200, md: 210 } }}
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={degree || ""}
+              autoComplete="off"
+              required
+              placeholder="Gender"
+              variant="outlined"
+              size="small"
+              label="Education"
+              onChange={(e) => setDegree(e.target.value)}
+              // onBlur={handleFocusGender}
+              // focused={focused.toString()}
+            >
+              {/* <MenuItem selected value={"Education"}>
+                Education
+              </MenuItem> */}
+              <MenuItem value={"undergraduate"}>UnderGraduate</MenuItem>
+              <MenuItem value={"postgraduate"}>PostGraduate</MenuItem>
+              {/* <MenuItem value={"Other"}>Other</MenuItem> */}
+            </Select>
+          </FormControl>
         </div>
       </div>
       <div className="expcard">
         {scholardata.map((item) => {
           return (
             <Card
+            key={item._id}
               sx={{ maxWidth: 345 }}
               className="cardinside"
               data-aos="flip-left"
@@ -159,13 +187,13 @@ export default function National() {
                 </Typography>
                 <Typography paragraph>{item.lastDate}</Typography>
                 <div className="applydiv">
-                <a href={item.applyUrl} style={{textDecoration:"none"}}>
-                  <Button variant="contained" className="apply" >
-                    Apply
-                  </Button>
+                  <a href={item.applyUrl} style={{ textDecoration: "none" }}>
+                    <Button variant="contained" className="apply">
+                      Apply
+                    </Button>
                   </a>
-                  <button onClick={()=> Star(item._id)}>
-                  <StarBorderIcon />
+                  <button onClick={() => Star(item._id)}>
+                    <StarBorderIcon />
                   </button>
                 </div>
               </CardContent>
