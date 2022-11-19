@@ -10,14 +10,29 @@ import Navbar from "../Navbar/Navbar";
 import { Button } from "@mui/material";
 
 export default function National() {
-  const [data, setData] = React.useState([]);
+  const [scholardata, setScholarData] = React.useState([]);
+  function Star(item)  {
+    console.log(item);
+    let token = localStorage.getItem("token");
+    const data = {
+      "accessToken": token,      
+    }
+    console.log(data);
+    axios.patch(`https://scholarpad.herokuapp.com/api/v1/list/international/${item}`,data)
+    .then((res) => {
+     console.log("Data saved");
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  };
   const url = "https://scholarpad.herokuapp.com/api/v1/international";
   const getScholarship = () => {
     axios
       .get(url)
       .then((res) => {
         console.log(res.data);
-        setData(res.data);
+        setScholarData(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -116,7 +131,7 @@ export default function National() {
         </div>
       </div>
       <div className="expcard">
-        {data.map((item) => {
+        {scholardata.map((item) => {
           return (
             <Card
               sx={{ maxWidth: 345 }}
@@ -137,10 +152,14 @@ export default function National() {
                 </Typography>
                 <Typography paragraph>{item.lastDate}</Typography>
                 <div className="applydiv">
-                  <Button variant="contained" className="apply">
+                <a href={item.applyUrl} style={{textDecoration:"none"}}>
+                  <Button variant="contained" className="apply" >
                     Apply
                   </Button>
+                  </a>
+                  <button onClick={()=> Star(item._id)}>
                   <StarBorderIcon />
+                  </button>
                 </div>
               </CardContent>
             </Card>

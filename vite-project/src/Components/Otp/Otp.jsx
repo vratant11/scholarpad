@@ -45,6 +45,7 @@ const Otp = (accessToken) => {
             .patch("https://scholarpad.herokuapp.com/api/v1/signup/verify", data)
             .then((res) => {
                 console.log(res);
+                navigate('/');
 
             })
             .catch((err) => {

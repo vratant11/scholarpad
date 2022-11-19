@@ -60,6 +60,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const token = localStorage.getItem("token");
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -101,8 +102,8 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      {/* <MenuItem onClick={handleMenuClose}>Profile</MenuItem> */}
+      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
     </Menu>
   );
 
@@ -163,7 +164,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}} className="main">
+      <AppBar position="static"  className="main">
         <Toolbar>
           <IconButton
             size="large"
@@ -174,12 +175,15 @@ export default function PrimarySearchAppBar() {
           >
             {/* <MenuIcon /> */}
           </IconButton>
+          <a href="/">
+
           <img
           
             id="image"
             src="src\Images\Green Modern Education Online Course Logo (3) 1.png"
             alt="Error"
           />
+          </a>
 
           <Search className="search">
             <SearchIconWrapper>

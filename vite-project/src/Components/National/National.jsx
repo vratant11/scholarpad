@@ -9,25 +9,36 @@ import Typography from "@mui/material/Typography";
 import Navbar from "../Navbar/Navbar";
 import { Button } from "@mui/material";
 
+import { useNavigate } from "react-router-dom";
+
+
 export default function National() {
-  const [data, setData] = React.useState([]);
+  const [scholardata, setScholarData] = React.useState([]);
+  const navigate = useNavigate();
+
   const url = "https://scholarpad.herokuapp.com/api/v1/national";
-  const Star = () => {
+  function Star(item)  {
+    console.log(item);
     let token = localStorage.getItem("token");
     const data = {
-      "emailaccessToken": token,      
+      "accessToken": token,      
     }
-    axios.patch(`https://scholarpad.herokuapp.com/api/v1/list/national/${data.id}`)
+    console.log(data);
+    axios.patch(`https://scholarpad.herokuapp.com/api/v1/list/national/${item}`,data)
     .then((res) => {
      console.log("Data saved");
     })
+    .catch((err)=>{
+      console.log(err);
+    })
   };
+ 
   const getScholarship = () => {
     axios
       .get(url)
       .then((res) => {
-        setData(res.data);
-        console.log(data.id);
+        setScholarData(res.data);
+        // console.log(data.id);
       
       })
       .catch((err) => {
@@ -129,9 +140,10 @@ export default function National() {
         </div>
       </div>
       <div className="expcard">
-        {data.map((item) => {
+        {scholardata.map((item) => {
           return (
             <Card
+            key={item._id}
               sx={{ maxWidth: 345 }}
               className="cardinside"
               data-aos="flip-left"
@@ -150,10 +162,17 @@ export default function National() {
                 </Typography>
                 <Typography paragraph>{item.lastDate}</Typography>
                 <div className="applydiv">
-                  <Button variant="contained" className="apply">
+                  <a href={item.applyUrl} style={{textDecoration:"none"}}>
+                  <Button variant="contained" className="apply" >
                     Apply
                   </Button>
-                  <StarBorderIcon onClick={Star}/>
+                  </a>
+                 
+                  <button onClick={() => Star(item._id)}>
+
+                  <StarBorderIcon  />
+                  </button>
+                 
                 </div>
               </CardContent>
             </Card>

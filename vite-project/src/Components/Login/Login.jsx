@@ -19,6 +19,7 @@ import axios from "axios";
 
 
 const Login = () => {
+  const navigate = useNavigate();
  
   const [value, setValue] = useState("1");
   const handleChange = (e, newValue) => {
@@ -100,7 +101,7 @@ const Login = () => {
         .then((res) => {
           console.log(res);
           window.alert("Logged in successfully");
-    navigate("/")
+          navigate("/");
           
         })
         .catch((err) => {

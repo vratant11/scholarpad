@@ -40,6 +40,15 @@ const Profile = () => {
     axios.patch(url, data)
     .then((res) => {
       console.log(res)
+      window.alert("Profile Updated")
+      setCollege("");
+      setCollege("");
+      setCategory("");
+      setState("");
+      setDob("");
+      setIncome("");
+      setGender("");
+      setName("");
     })
     .catch((err) => {
       console.log(err);
@@ -79,6 +88,7 @@ const Profile = () => {
                   value={gender}
                   autoComplete="off"
                   required
+                  placeholder="Gender"
                     variant="outlined"
                     size="small"
                   label="Gender"
@@ -86,6 +96,7 @@ const Profile = () => {
                   // onBlur={handleFocusGender}
                   // focused={focused.toString()}
                 >
+                  <MenuItem selected value={"Gender"}  >Gender</MenuItem>
                   <MenuItem value={"Male"}>Male</MenuItem>
                   <MenuItem value={"Female"}>Female</MenuItem>
                   <MenuItem value={"Other"}>Other</MenuItem>

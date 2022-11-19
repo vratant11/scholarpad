@@ -27,7 +27,7 @@ const Home = () => {
         <h1 style={{color:"#F1D112", marginBottom:"20px", marginLeft:"20px"}}>News</h1>
       <Swiper/>
       </div>
-      <a href="/national" style={{ textDecoration: "none" }}>
+      <a href="/international" style={{ textDecoration: "none" }}>
         <div className="international">
           <div
             className="photo"
@@ -53,7 +53,7 @@ const Home = () => {
           </div>
         </div>
       </a>
-      <a href="/international" style={{ textDecoration: "none" }}>
+      <a href="/national" style={{ textDecoration: "none" }}>
         <div className="national">
           <div className="texts"
           data-aos="fade-right"
@@ -85,7 +85,7 @@ const Home = () => {
       <div className="footer">
         <div className="footerimg">
           <img
-            id="image"
+            id="image-footer"
             src="src\Images\Green Modern Education Online Course Logo (3) 1.png"
             alt="Error"
           />

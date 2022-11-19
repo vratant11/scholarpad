@@ -8,6 +8,9 @@ import Login from "./Components/Login/Login";
 import Otp from "./Components/Otp/Otp";
 import Home from "./Components/Homepage/Home";
 import Profile from "./Components/Profile/Profile";
+// import National from "./Components/National/National";
+import National from "./Components/National/National"
+import International from "./Components/International/International"
 // import FormStructure from "./form/Registration";
 
 function App() {
@@ -40,7 +43,12 @@ function App() {
         <Route path="/register" element={<FormStructure />} />
         <Route path="/otp" element={<Otp/>} />
         <Route path="/login" element={<Login/>} />  
-        <Route path="/profile" element={<Profile/>}/>      
+        <Route path="/profile" element={<Profile/>}/>  
+        <Route path="/national" element={<National/>}/>  
+        <Route path="/international" element={<International/>}/>  
+
+
+
       </Routes>
       {/* <p id="transcript">Transcript: {transcript}</p> */}
     </Router>
