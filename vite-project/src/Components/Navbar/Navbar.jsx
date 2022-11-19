@@ -86,6 +86,7 @@ export default function PrimarySearchAppBar() {
   };
 
   const menuId = "primary-search-account-menu";
+  
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -109,6 +110,7 @@ export default function PrimarySearchAppBar() {
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
+    
     <Menu
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
@@ -185,7 +187,7 @@ export default function PrimarySearchAppBar() {
           />
           </a>
 
-          <Search className="search">
+          <Search className="searchmui">
             <SearchIconWrapper>
               <SearchIcon  />
             </SearchIconWrapper>
@@ -216,6 +218,8 @@ export default function PrimarySearchAppBar() {
                 <AccessibleIcon  />
               {/* </Badge> */}
             </IconButton>
+            {token ? (
+
             <IconButton
               size="large"
               edge="end"
@@ -228,7 +232,10 @@ export default function PrimarySearchAppBar() {
             >
             <MenuIcon />
             </IconButton>
+            ):""}
           </Box>
+          {!token? (
+            
           <IconButton
               size="large"
               aria-label="show 4 new mails"
@@ -238,6 +245,7 @@ export default function PrimarySearchAppBar() {
             <AccountCircle onClick={Click}/>                
               </Badge>
             </IconButton>
+          ):""}
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -254,7 +262,12 @@ export default function PrimarySearchAppBar() {
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-      {renderMenu}
+      {token? 
+      (
+        <>
+        {renderMenu}
+        </>
+      ):""}
     </Box>
   );
 }

@@ -9,10 +9,11 @@
       margin-right: 22%;
       margin-left: -2%;
   }
-  .search{
+  .searchmui{
       width: 40rem !important;
       background-color: aliceblue !important;
       color: black;
+      margin-left: 22% !important;    
   }
   .iconsize{
     width: 6vw !important;
