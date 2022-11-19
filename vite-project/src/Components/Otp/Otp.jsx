@@ -70,7 +70,7 @@ const Otp = (accessToken) => {
     };
     
     
-  return (<div className='container'>
+  return (<div className='main_container'>
       <div className='app-wrapper'>
       <h2 className='title'>OTP Verification</h2>
       

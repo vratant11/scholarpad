@@ -99,8 +99,9 @@ const Login = () => {
       axios
         .post("https://scholarpad.herokuapp.com/api/v1/signin", data)
         .then((res) => {
-          console.log(res);
+          console.log(res.data.accessToken);
           window.alert("Logged in successfully");
+          localStorage.setItem("token",res.data.accessToken);
           navigate("/");
           
         })

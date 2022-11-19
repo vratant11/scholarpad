@@ -60,17 +60,12 @@ export default function National() {
           <ul className="dropdown-menu">
             <li>
               <a className="dropdown-item" href="#">
-                Action
+                Latest
               </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
+                Older
               </a>
             </li>
           </ul>
@@ -87,12 +82,19 @@ export default function National() {
           <ul className="dropdown-menu">
             <li>
               <a className="dropdown-item" href="#">
-                Action
+                Less than 3 Lakh
               </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
-                Another action
+              Less than 6 Lakh
+
+              </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+              Less than 10 Lakh
+
               </a>
             </li>
             <li>
@@ -114,7 +116,12 @@ export default function National() {
           <ul className="dropdown-menu">
             <li>
               <a className="dropdown-item" href="#">
-                Action
+                Graduate
+              </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                PostGraduate
               </a>
             </li>
             <li>

@@ -77,8 +77,10 @@ export default function PrimarySearchAppBar() {
   };
 
   const handleMenuClose = () => {
+    localStorage.removeItem("token")
     setAnchorEl(null);
     handleMobileMenuClose();
+    navigate('/login');
   };
 
   const handleMobileMenuOpen = (event) => {
@@ -187,7 +189,7 @@ export default function PrimarySearchAppBar() {
           />
           </a>
 
-          <Search className="searchmui">
+          <Search id="searchmui">
             <SearchIconWrapper>
               <SearchIcon  />
             </SearchIconWrapper>
