@@ -26,7 +26,8 @@ export default function National() {
     console.log(data);
     axios.patch(`https://scholarpad.herokuapp.com/api/v1/list/national/${item}`,data)
     .then((res) => {
-     console.log("Data saved");
+     console.log(res.data);
+     window.alert("Succesfully added to your list");
     })
     .catch((err)=>{
       console.log(err);

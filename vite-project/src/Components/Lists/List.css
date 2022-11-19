@@ -1,0 +1,30 @@
+.main_list {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #8d72e1 0%, rgba(164, 10, 60, 0.7) 100%);
+  height: 100vh !important;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  gap: 4rem;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;  
+  flex-direction: column;
+  gap: 2rem;
+  width: 50vw !important;
+}
+.innerlist {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  color: white;
+  border-bottom: 2px solid white;
+ 
+}
+.dateandicon{
+  display: flex;
+  justify-content: space-between;
+}
