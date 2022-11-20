@@ -21,7 +21,9 @@ const Home = () => {
       <Carousel />
       <div className="buttons" style={{marginBottom:"10px", marginTop:"15px"}}>
        <Link to="/profile"> <button className="btn1" >Make Your Profile</button> </Link> 
+        <Link to="/list">        
         <button className="btn1">See Your Lists</button>
+        </Link>
       </div>
       <div style={{marginTop:"40px", padding:"15px", height:"35rem"}}>
         <h1 style={{color:"#F1D112", marginBottom:"20px", marginLeft:"20px"}}>News</h1>
