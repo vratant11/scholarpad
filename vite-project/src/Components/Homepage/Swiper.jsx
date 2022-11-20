@@ -16,7 +16,7 @@ export default function App() {
 
     const[news, setNews] = useState([]);
 
-    const url = "https://newsapi.org/v2/everything?q=scholarships&from=2022-10-18&sortBy=publishedAt&apiKey=e5b7e6eb46b44ad1b9a65f3ef77b9faf";
+    const url = "https://newsapi.org/v2/everything?q=scholarship&from=2022-10-20&sortBy=publishedAt&apiKey=e5b7e6eb46b44ad1b9a65f3ef77b9faf";
     const getNews = () =>{
         axios.get(url)
             .then((res) =>{
