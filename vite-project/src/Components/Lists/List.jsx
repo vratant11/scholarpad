@@ -17,12 +17,12 @@ export default function National() {
   const url = "https://scholarpad.herokuapp.com/api/v1/mylist";
 const Delete = (item) => {
     const token = localStorage.getItem("token");
-    const data = {
+    console.log(item);
+    const data1 = {
         "accessToken": token,
-        "nationalId":item
     }
     axios
-      .delete("#",data)
+      .delete(`https://scholarpad.herokuapp.com/api/v1/mylist/${item}`,data1)
       .then((res) => {
         console.log(res.data);      
       })
@@ -50,7 +50,7 @@ const Delete = (item) => {
   };
   useEffect(() => {
     getScholarship();
-
+    
   }, []);
 
   return (
@@ -63,9 +63,12 @@ const Delete = (item) => {
       <div className="list">
         {scholardata.map((item) => {
           return (
-           <div className="innerlist">
+           <div key ={item._id} className="innerlist">
             <h3>{item.name}</h3>
-            <h6 className="dateandicon">Last Date:{item.lastDate}<DeleteIcon onClick={()=>Delete(item._id)}/></h6>             
+            <h6 className="dateandicon">Last Date:{item.lastDate}  <button onClick={()=>Delete(item._id)}>              
+              <DeleteIcon />
+              </button> 
+              </h6>             
            </div>
           );
         })}
