@@ -7,7 +7,7 @@ import Navbar from "../Navbar/Navbar";
 import { Button } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
-import { Delete } from "react-axios";
+// import { Delete } from "react-axios";
 
 
 export default function National() {
@@ -21,15 +21,21 @@ const Delete = (item) => {
     const data1 = {
         "accessToken": token,
     }
+    console.log(data1);
     axios
-      .delete(`https://scholarpad.herokuapp.com/api/v1/mylist/${item}`,data1)
+      .delete(`https://scholarpad.herokuapp.com/api/v1/mylist/${item}?accessToken=${token}`)
       .then((res) => {
-        console.log(res.data);      
+        console.log(res.data);   
+        reload();   
       })
       .catch((err) => {
         console.log(err);
       });
 
+}
+
+const reload = () =>{
+  getScholarship();
 }
  
   const getScholarship = () => {
@@ -65,8 +71,8 @@ const Delete = (item) => {
           return (
            <div key ={item._id} className="innerlist">
             <h3>{item.name}</h3>
-            <h6 className="dateandicon">Last Date:{item.lastDate}  <button onClick={()=>Delete(item._id)}>              
-              <DeleteIcon />
+            <h6 className="dateandicon">Last Date:{item.lastDate}  <button>              
+              <DeleteIcon  onClick={()=>Delete(item._id)} />
               </button> 
               </h6>             
            </div>

@@ -22,9 +22,7 @@ import List from "./Components/Lists/List";
 
 function App() {
   const alanBtnInstance = useRef(null);
-  // const navigate = useNavigate();
 
-  // const [toggle,setToggle] = useState(false)
   useEffect(() => {
     if (!alanBtnInstance.current) {
       alanBtnInstance.current = alanBtn({
